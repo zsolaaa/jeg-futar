@@ -143,21 +143,16 @@
       padding-block: var(--space-4xl);
       border-top: 1px solid var(--color-rule);
     }
-    .when-section__inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-3xl);
-      align-items: start;
-    }
     .when-section__title {
       font-size: var(--text-display-s);
       font-weight: 800;
       letter-spacing: -0.035em;
       line-height: 1.08;
+      margin-bottom: var(--space-2xl);
     }
     .when-section__list {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: var(--space-lg);
     }
     .when-section__item {
@@ -183,8 +178,8 @@
       margin-top: 2px;
     }
 
-    @media (max-width: 760px) {
-      .when-section__inner { grid-template-columns: 1fr; }
+    @media (max-width: 680px) {
+      .when-section__list { grid-template-columns: 1fr; }
     }
 
     /* — Who is it for — */
@@ -342,9 +337,8 @@
     <!-- When to recommend -->
     <section class="when-section" aria-labelledby="when-heading">
       <div class="container">
-        <div class="when-section__inner">
-          <h2 class="when-section__title" id="when-heading">Mikor ajánlunk hűtőkihelyezést?</h2>
-          <ul class="when-section__list" role="list">
+        <h2 class="when-section__title" id="when-heading">Mikor ajánlunk hűtőkihelyezést?</h2>
+        <ul class="when-section__list" role="list">
             <li class="when-section__item">
               <span class="when-section__item-num">1</span>
               Többször merült fel igény, hogy jégkocka vagy jégdara legyen a helyszínen
@@ -365,8 +359,7 @@
               <span class="when-section__item-num">5</span>
               Strandon kihelyezett büfé, étterem esetén
             </li>
-          </ul>
-        </div>
+        </ul>
       </div>
     </section>
 
