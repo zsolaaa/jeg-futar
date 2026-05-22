@@ -92,15 +92,14 @@ hr { border: none; }
   padding: var(--space-sm) var(--space-md) var(--space-sm) var(--space-lg);
 }
 .nav__wordmark {
-  display: flex;
-  align-items: center;
+  font-family: var(--font-wordmark);
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--color-ink);
   text-decoration: none;
+  letter-spacing: -0.01em;
   flex-shrink: 0;
-}
-.nav__wordmark img {
-  height: 40px;
-  width: auto;
-  display: block;
+  white-space: nowrap;
 }
 .nav__wordmark:focus-visible {
   outline: 2px solid var(--color-focus);
