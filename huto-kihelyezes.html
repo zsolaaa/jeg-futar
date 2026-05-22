@@ -138,6 +138,55 @@
       margin-top: var(--space-sm);
     }
 
+    /* — When to recommend — */
+    .when-section {
+      padding-block: var(--space-4xl);
+      border-top: 1px solid var(--color-rule);
+    }
+    .when-section__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3xl);
+      align-items: start;
+    }
+    .when-section__title {
+      font-size: var(--text-display-s);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.08;
+    }
+    .when-section__list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+    .when-section__item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-lg);
+      padding: var(--space-xl);
+      background: var(--color-paper-2);
+      border: 1px solid var(--color-rule);
+      border-radius: var(--radius-card);
+      font-size: var(--text-base);
+      color: var(--color-ink-2);
+      line-height: 1.55;
+    }
+    .when-section__item-num {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--color-accent);
+      flex-shrink: 0;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    @media (max-width: 760px) {
+      .when-section__inner { grid-template-columns: 1fr; }
+    }
+
     /* — Who is it for — */
     .for-whom {
       background: var(--color-paper-2);
@@ -285,6 +334,37 @@
             <span class="benefit__aside-value">Egyedi</span>
             <p class="benefit__aside-sub">Az Ön igényei szerint.<br>Egyeztetünk, alkalmazkodunk.</p>
           </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- When to recommend -->
+    <section class="when-section" aria-labelledby="when-heading">
+      <div class="container">
+        <div class="when-section__inner">
+          <h2 class="when-section__title" id="when-heading">Mikor ajánlunk hűtőkihelyezést?</h2>
+          <ul class="when-section__list" role="list">
+            <li class="when-section__item">
+              <span class="when-section__item-num">1</span>
+              Többször merült fel igény, hogy jégkocka vagy jégdara legyen a helyszínen
+            </li>
+            <li class="when-section__item">
+              <span class="when-section__item-num">2</span>
+              Szezonális helyszínen szükség lenne koktélokhoz, hűsítőkhöz jégre
+            </li>
+            <li class="when-section__item">
+              <span class="when-section__item-num">3</span>
+              Esküvőre, lakodalomra, ahol gyorsan, nagyobb mennyiségre lehet szükség
+            </li>
+            <li class="when-section__item">
+              <span class="when-section__item-num">4</span>
+              Fesztiválra, ahol helyben nem lehetséges a jég előállítása
+            </li>
+            <li class="when-section__item">
+              <span class="when-section__item-num">5</span>
+              Strandon kihelyezett büfé, étterem esetén
+            </li>
+          </ul>
         </div>
       </div>
     </section>
