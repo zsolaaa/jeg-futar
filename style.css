@@ -85,6 +85,10 @@ hr { border: none; }
   box-shadow: 0 2px 20px oklch(20% 0.015 235 / 0.08);
   position: relative;
 }
+.nav.nav--scrolled {
+  box-shadow: 0 8px 48px oklch(20% 0.015 235 / 0.16);
+  border-color: oklch(87% 0.009 218 / 0.7);
+}
 .nav__inner {
   display: flex;
   align-items: center;
@@ -311,13 +315,22 @@ hr { border: none; }
   font-weight: 600;
   color: var(--color-accent);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
+  position: relative;
   padding-bottom: 1px;
-  transition:
-    border-color var(--dur-micro) var(--ease-out),
-    gap var(--dur-short) var(--ease-out);
+  transition: gap var(--dur-short) var(--ease-out);
 }
-.link-arrow:hover { border-color: var(--color-accent); gap: var(--space-sm); }
+.link-arrow::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 1px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--dur-short) cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-arrow:hover { gap: var(--space-sm); }
+.link-arrow:hover::after { transform: scaleX(1); }
 .link-arrow:focus-visible {
   outline: 2px solid var(--color-focus);
   outline-offset: 3px;
@@ -475,12 +488,14 @@ hr { border: none; }
   grid-column: 1 / -1;
 }
 
-/* ─── Reveal animation ───────────────────────────────────────── */
+/* ─── Reveal animation — scroll-triggered via IntersectionObserver ── */
 .reveal {
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(12px);
+}
+.reveal.is-visible {
   animation: reveal var(--dur-long) var(--ease-out) forwards;
-  animation-delay: calc(var(--i, 0) * 60ms);
+  animation-delay: calc(var(--i, 0) * 80ms);
 }
 @keyframes reveal {
   to { opacity: 1; transform: none; }
@@ -547,8 +562,9 @@ hr { border: none; }
     animation-iteration-count: 1 !important;
     transition-duration: 150ms !important;
   }
-  .reveal {
+  .reveal.is-visible {
     animation: reveal-reduced 150ms linear forwards;
+    animation-delay: 0ms !important;
     transform: none;
   }
   @keyframes reveal-reduced { to { opacity: 1; } }
