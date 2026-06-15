@@ -18,6 +18,7 @@
   --color-accent:     oklch(52% 0.22 228);
   --color-accent-2:   oklch(62% 0.18 228);
   --color-accent-ink: oklch(98% 0.003 220);
+  --color-accent-hover: oklch(44% 0.24 228);
   --color-focus:      oklch(60% 0.25 258);
 
   /* — Typography — */
