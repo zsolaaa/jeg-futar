@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="hu" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rólunk — Jég Futár</title>
+<meta name="description" content="Szegedi vállalkozás 2018 óta. Vendéglátóipari tapasztalatból indultunk, modern olasz géppel és saját víztisztítóval készítjük a jeget.">
+<meta name="theme-color" content="#0b0f16">
+<link rel="canonical" href="https://jeg-futar.hu/rolunk.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..500&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@300..500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/main.css">
+
+<script>
+  (function () {
+    document.documentElement.classList.add('js');
+    try {
+      var t = localStorage.getItem('jf-theme');
+      if (t) { document.documentElement.dataset.theme = t; }
+      else { document.documentElement.removeAttribute('data-theme'); }
+    } catch (e) {}
+  })();
+</script>
+
+<style>
+  .fact-card {
+    display: grid;
+    gap: var(--s-1);
+    padding: var(--s-5);
+    border-radius: var(--r-md);
+    border: 1px solid var(--line);
+    background: var(--bg-inset);
+  }
+
+  .fact-card__value {
+    font-family: var(--font-display);
+    font-variation-settings: "opsz" 144;
+    font-size: clamp(2rem, 3.6vw, 2.75rem);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-feature-settings: "tnum" 1;
+    color: var(--text);
+  }
+
+  .fact-card__value sup { font-size: 0.34em; vertical-align: super; color: var(--accent); letter-spacing: 0; }
+
+  .value-item {
+    display: grid;
+    gap: var(--s-3);
+    align-content: start;
+    padding-top: var(--s-5);
+    border-top: 2px solid var(--line-strong);
+  }
+
+  .value-item__num {
+    font-family: var(--font-mono);
+    font-size: var(--t-mono);
+    letter-spacing: 0.16em;
+    color: var(--accent);
+  }
+</style>
+</head>
+
+<body>
+
+<svg class="sr-only" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <g id="jf-arm" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 12.4V2.9"/>
+      <path d="M10.65 4.45 12 5.8l1.35-1.35"/>
+      <path d="M10.2 7.2 12 9l1.8-1.8"/>
+    </g>
+  </defs>
+  <symbol id="i-crystal" viewBox="0 0 24 24">
+    <use href="#jf-arm"/>
+    <use href="#jf-arm" transform="rotate(60 12 12)"/>
+    <use href="#jf-arm" transform="rotate(120 12 12)"/>
+    <use href="#jf-arm" transform="rotate(180 12 12)"/>
+    <use href="#jf-arm" transform="rotate(240 12 12)"/>
+    <use href="#jf-arm" transform="rotate(300 12 12)"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13.5 6.5 19 12l-5.5 5.5"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.4 3h3l1.5 4-2 1.4a12.2 12.2 0 0 0 6.7 6.7l1.4-2 4 1.5v3a2 2 0 0 1-2.2 2A17.2 17.2 0 0 1 4.4 5.2 2 2 0 0 1 6.4 3Z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.2 14.6A8.6 8.6 0 0 1 9.4 3.8a8.6 8.6 0 1 0 10.8 10.8Z"/></symbol>
+  <symbol id="i-cube" viewBox="0 0 24 24"><path d="m12 2.8 8 4.6v9.2l-8 4.6-8-4.6V7.4z"/><path d="m12 12.1 8-4.7M12 12.1v9.1M12 12.1 4 7.4"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 2.8s6.2 6.6 6.2 11a6.2 6.2 0 0 1-12.4 0c0-4.4 6.2-11 6.2-11Z"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9.5 5 7 7-7 7"/></symbol>
+</svg>
+
+<div class="grain" aria-hidden="true"></div>
+<a href="#main" class="skip-link">Ugrás a tartalomra</a>
+
+<header class="masthead">
+  <nav class="nav" aria-label="Főmenü">
+    <a href="index.html" class="brand" aria-label="Jég Futár — főoldal">
+      <svg class="brand__mark" aria-hidden="true"><use href="#i-crystal"/></svg>
+      <span class="brand__word">Jég&nbsp;Futár</span>
+    </a>
+    <ul class="nav__links" id="nav-links">
+      <li><a href="termekek.html" class="nav__link">Termékek</a></li>
+      <li><a href="kiszallitas.html" class="nav__link">Kiszállítás</a></li>
+      <li><a href="huto-kihelyezes.html" class="nav__link">Hűtő kihelyezés</a></li>
+      <li><a href="rolunk.html" class="nav__link" aria-current="page">Rólunk</a></li>
+      <li><a href="kapcsolat.html" class="nav__link">Kapcsolat</a></li>
+      <li class="nav__drawer-foot">
+        <a href="tel:+36706066181" class="btn btn--block">
+          <svg aria-hidden="true"><use href="#i-phone"/></svg>
+          +36 70 606 6181
+        </a>
+      </li>
+    </ul>
+    <div class="nav__tail">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Világos téma bekapcsolása">
+        <svg class="ico-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="ico-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <a href="tel:+36706066181" class="btn btn--sm nav__cta-desktop">
+        <svg aria-hidden="true"><use href="#i-phone"/></svg>
+        +36 70 606 6181
+      </a>
+      <button class="nav__burger" type="button" data-drawer-toggle
+              aria-expanded="false" aria-controls="nav-links" aria-label="Menü megnyitása">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="page-head" aria-labelledby="page-title">
+    <div class="aurora" aria-hidden="true">
+      <div class="aurora__blob"></div>
+      <div class="aurora__blob"></div>
+      <div class="aurora__blob"></div>
+    </div>
+
+    <div class="shell page-head__inner">
+      <nav class="crumb reveal" aria-label="Morzsamenü">
+        <a href="index.html">Főoldal</a>
+        <svg aria-hidden="true"><use href="#i-chev"/></svg>
+        <span aria-current="page">Rólunk</span>
+      </nav>
+
+      <h1 class="display-xl page-head__title reveal-lines" id="page-title">
+        <span class="line"><span>Szegedi vállalkozás.</span></span>
+        <span class="line"><span><em>2018</em> óta.</span></span>
+      </h1>
+
+      <p class="lede page-head__lede reveal" style="--delay:280ms">
+        Vendéglátóipari tapasztalatból indultunk, így pontosan tudjuk, milyen az,
+        amikor a legrosszabb pillanatban fogy el a jég. Azóta egyetlen dolgot
+        csinálunk: megbízható minőségű jeget szállítunk Szegeden.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ Történet ════════════════════════════════════════════ -->
+  <section class="section section--flush-top" aria-labelledby="story-title">
+    <div class="shell split-7-5">
+      <div class="stack stack-6">
+        <p class="eyebrow reveal">A történet</p>
+        <h2 class="display reveal" id="story-title">Honnan indultunk</h2>
+
+        <div class="prose reveal" style="--delay:100ms">
+          <p>
+            A Jég Futár szegedi vendéglátóipari tapasztalatból született.
+            Tudtuk, hogy a városban nem volt megbízható, rendszeres jégszállítás:
+            az éttermek és bárok vagy maguk gyártottak — kevés, lassú, kis
+            kapacitású gépekkel —, vagy messziről, rendszertelenül szerezték be.
+          </p>
+        </div>
+
+        <div class="pull-quote reveal" style="--delay:140ms">
+          <p>Elfogy a jég pontosan akkor, amikor a legjobban kellene.</p>
+          <cite>A kiindulópont</cite>
+        </div>
+
+        <div class="prose reveal" style="--delay:180ms">
+          <p>
+            2018-ban indítottuk el a szolgáltatást. <strong>Modern olasz
+            jéggyártó berendezéssel</strong> és <strong>saját víztisztítóval</strong>
+            vágtunk bele — ez azt jelenti, hogy a jégkocka és a jégdara minősége
+            messze felülmúlja azt, amit egy kisebb, pult alatti géppel elő lehet
+            állítani.
+          </p>
+          <p>
+            Mára éttermeknek, bároknak, rendezvényekre és magánvevőknek is
+            szállítunk Szegeden és a közvetlen agglomerációban.
+            <strong>Hétfőtől vasárnapig</strong>, kiszállítási díj nélkül.
+          </p>
+          <p>
+            A hűtő kihelyezési szolgáltatást azoknak találtuk ki, akiknek napi
+            szinten kell a jég: ők nem rendelnek, mi egyszerűen feltöltjük a
+            helyszínen elhelyezett hűtőt. Nincs szervezés, nincs koordináció.
+          </p>
+        </div>
+
+        <div class="cluster reveal" style="--delay:220ms">
+          <a href="huto-kihelyezes.html" class="arrow-link">
+            A hűtő kihelyezésről
+            <svg aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <aside class="stack stack-4 sticky-aside" aria-label="Adatok">
+        <div class="fact-card reveal">
+          <span class="mono text-muted">Alapítva</span>
+          <span class="fact-card__value">2018</span>
+          <p class="body-sm" style="margin-top:.35rem">Szegeden, vendéglátóipari tapasztalatból.</p>
+        </div>
+        <div class="fact-card reveal" style="--delay:90ms">
+          <span class="mono text-muted">Kiszállítás</span>
+          <span class="fact-card__value">0<sup>Ft</sup></span>
+          <p class="body-sm" style="margin-top:.35rem">Szegeden és a közvetlen környéken.</p>
+        </div>
+        <div class="fact-card reveal" style="--delay:180ms">
+          <span class="mono text-muted">Nyitva</span>
+          <span class="fact-card__value">7 nap</span>
+          <p class="body-sm" style="margin-top:.35rem">A hét minden napján hívható.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ═══ Eszközök ════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="gear-title">
+    <div class="shell">
+      <div class="section-head section-head--split">
+        <div class="stack stack-4">
+          <p class="eyebrow reveal">Minőség</p>
+          <h2 class="display-lg reveal-lines" id="gear-title">
+            <span class="line"><span>Nem a marketing.</span></span>
+            <span class="line"><span>A gép és a víz.</span></span>
+          </h2>
+        </div>
+        <p class="body reveal max-44" style="--delay:160ms">
+          A jég minőségét két dolog dönti el: milyen berendezésen készül,
+          és milyen vízből. Mindkettőbe befektettünk.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <article class="card card--glow reveal">
+          <div class="icon-tile"><svg aria-hidden="true"><use href="#i-cube"/></svg></div>
+          <h3 class="heading heading-xl">Modern olasz jéggyártó</h3>
+          <p class="card__body">
+            Professzionális, vendéglátóipari kapacitású berendezés — nem az a
+            fajta, amit a pult alá tolnak. Nagy teljesítményű, megbízható,
+            és pontosan szabályozható: jégkocka és jégdara egyaránt készül rajta.
+          </p>
+        </article>
+
+        <article class="card card--glow reveal" style="--delay:110ms">
+          <div class="icon-tile"><svg aria-hidden="true"><use href="#i-drop"/></svg></div>
+          <h3 class="heading heading-xl">Saját víztisztító rendszer</h3>
+          <p class="card__body">
+            A jég minőségét alapvetően a felhasznált víz határozza meg.
+            Saját víztisztító rendszerrel dolgozunk: ez tiszta, semleges ízű,
+            áttetsző jeget jelent, ami nem ront a koktél vagy az ital ízén.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Elvek ═══════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="values-title">
+    <div class="shell">
+      <div class="section-head">
+        <p class="eyebrow reveal">Ahogy dolgozunk</p>
+        <h2 class="display reveal" id="values-title">Három elv.</h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="value-item reveal">
+          <span class="value-item__num">01</span>
+          <h3 class="heading heading-lg">Megbízhatóság mindenekelőtt</h3>
+          <p class="body-sm">
+            Ha megállapodtunk egy időpontban, ott leszünk. A vendéglátás nem vár,
+            és mi sem késünk.
+          </p>
+        </div>
+        <div class="value-item reveal" style="--delay:100ms">
+          <span class="value-item__num">02</span>
+          <h3 class="heading heading-lg">Minőség kompromisszum nélkül</h3>
+          <p class="body-sm">
+            Csak frissen gyártott, tiszta jéggel szállítunk. Nem összeolvadttal,
+            nem régivel, nem lefagyasztott csapvízzel.
+          </p>
+        </div>
+        <div class="value-item reveal" style="--delay:200ms">
+          <span class="value-item__num">03</span>
+          <h3 class="heading heading-lg">Helyi, rugalmas, személyes</h3>
+          <p class="body-sm">
+            Szegedi vállalkozásként szegedieket szolgálunk ki. Közvetlenül
+            érhet el minket — nem call centeren keresztül.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closer" aria-labelledby="closer-title">
+    <div class="aurora" aria-hidden="true">
+      <div class="aurora__blob"></div>
+      <div class="aurora__blob"></div>
+      <div class="aurora__blob"></div>
+    </div>
+    <div class="shell closer__inner">
+      <p class="eyebrow eyebrow--plain reveal">Kapcsolat</p>
+      <h2 class="display-xl reveal" id="closer-title" style="--delay:80ms">Kérdése van?<br>Hívjon minket.</h2>
+      <a href="tel:+36706066181" class="phone-display reveal" style="--delay:160ms" data-magnetic="0.12">+36 70 606 6181</a>
+      <div class="closer__meta reveal" style="--delay:240ms">
+        <span>Hétfő — Vasárnap</span>
+        <span>Szeged és környéke</span>
+        <span>Kiszállítás 0 Ft</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="shell">
+    <p class="footer__statement reveal-lines">
+      <span class="line"><span>Friss jég.</span></span>
+      <span class="line"><span>Szegeden. <span>Ma.</span></span></span>
+    </p>
+    <div class="footer__grid">
+      <div class="footer__col">
+        <a href="index.html" class="brand" aria-label="Jég Futár — főoldal">
+          <svg class="brand__mark" aria-hidden="true"><use href="#i-crystal"/></svg>
+          <span class="brand__word">Jég&nbsp;Futár</span>
+        </a>
+        <p class="body-sm max-44" style="margin-top:.5rem">
+          Jégkocka és jégdara kiszállítás Szegeden és környékén, 2018 óta.
+        </p>
+      </div>
+      <nav class="footer__col" aria-label="Szolgáltatások">
+        <p class="footer__title">Szolgáltatás</p>
+        <a href="termekek.html" class="footer__link">Termékek &amp; árak</a>
+        <a href="kiszallitas.html" class="footer__link">Kiszállítás</a>
+        <a href="huto-kihelyezes.html" class="footer__link">Hűtő kihelyezés</a>
+      </nav>
+      <nav class="footer__col" aria-label="Cég">
+        <p class="footer__title">Cég</p>
+        <a href="rolunk.html" class="footer__link">Rólunk</a>
+        <a href="kapcsolat.html" class="footer__link">Kapcsolat</a>
+      </nav>
+      <div class="footer__col">
+        <p class="footer__title">Kapcsolat</p>
+        <a href="tel:+36706066181" class="footer__link">+36 70 606 6181</a>
+        <a href="mailto:info@jeg-futar.hu" class="footer__link">info@jeg-futar.hu</a>
+        <p class="body-sm text-muted" style="margin-top:.35rem">Hétfőtől vasárnapig</p>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <span>© 2026 Jég Futár · Szeged</span>
+      <span>Minden jog fenntartva</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

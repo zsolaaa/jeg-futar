@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="hu" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kiszállítás — Jég Futár</title>
+<meta name="description" content="Ingyenes jégkiszállítás Szegeden és környékén, hétfőtől vasárnapig. Kiszállítási díj 0 Ft, rendelés telefonon.">
+<meta name="theme-color" content="#0b0f16">
+<link rel="canonical" href="https://jeg-futar.hu/kiszallitas.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..500&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@300..500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/main.css">
+
+<script>
+  (function () {
+    document.documentElement.classList.add('js');
+    try {
+      var t = localStorage.getItem('jf-theme');
+      if (t) { document.documentElement.dataset.theme = t; }
+      else { document.documentElement.removeAttribute('data-theme'); }
+    } catch (e) {}
+  })();
+</script>
+
+<style>
+  .zero-panel__figure {
+    display: grid;
+    gap: var(--s-2);
+    justify-items: center;
+    text-align: center;
+    padding: clamp(2rem, 5vw, 3.5rem) var(--s-5);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--r-lg);
+    background:
+      radial-gradient(120% 100% at 50% 0%, var(--accent-wash), transparent 66%),
+      var(--bg-inset);
+  }
+
+  .zero-panel__num {
+    font-family: var(--font-display);
+    font-variation-settings: "opsz" 144;
+    font-size: clamp(4.5rem, 14vw, 9rem);
+    font-weight: 400;
+    line-height: 0.82;
+    letter-spacing: -0.05em;
+    font-feature-settings: "tnum" 1;
+    color: var(--text);
+  }
+
+  .zero-panel__num sup { font-size: 0.3em; vertical-align: super; color: var(--accent); letter-spacing: 0; }
+
+  .area-list { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; }
+
+  .area-list__item {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+    padding: var(--s-4) var(--s-5);
+    background: var(--bg);
+    font-size: var(--t-sm);
+    color: var(--text-2);
+  }
+
+  .area-list__item svg { width: 17px; height: 17px; color: var(--accent); flex-shrink: 0; }
+
+  .map-plate {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    border: 1px solid var(--line-strong);
+    background:
+      radial-gradient(60% 60% at 50% 48%, var(--accent-wash), transparent 70%),
+      linear-gradient(150deg, var(--bg-raised-2), var(--bg-inset));
+    display: grid;
+    place-items: center;
+  }
+
+  .map-plate::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 42px 42px;
+    -webkit-mask-image: radial-gradient(70% 70% at 50% 50%, #000, transparent 78%);
+    mask-image: radial-gradient(70% 70% at 50% 50%, #000, transparent 78%);
+  }
+
+  .map-plate__ring {
+    position: absolute;
+    border: 1px dashed var(--line-strong);
+    border-radius: 50%;
+  }
+  .map-plate__ring--a { inset: 26%; }
+  .map-plate__ring--b { inset: 13%; border-style: solid; border-color: var(--accent-wash); }
+
+  .map-plate__pin {
+    position: relative;
+    display: grid;
+    gap: var(--s-2);
+    justify-items: center;
+    color: var(--accent);
+  }
+  .map-plate__pin svg { width: 30px; height: 30px; }
+  .map-plate__pin span {
+    font-family: var(--font-mono);
+    font-size: var(--t-mono);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-2);
+  }
+
+  .map-plate__note {
+    position: absolute;
+    left: var(--s-5);
+    bottom: var(--s-5);
+    right: var(--s-5);
+    font-family: var(--font-mono);
+    font-size: var(--t-mono);
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    text-align: center;
+  }
+</style>
+</head>
+
+<body>
+
+<svg class="sr-only" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <g id="jf-arm" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 12.4V2.9"/>
+      <path d="M10.65 4.45 12 5.8l1.35-1.35"/>
+      <path d="M10.2 7.2 12 9l1.8-1.8"/>
+    </g>
+  </defs>
+  <symbol id="i-crystal" viewBox="0 0 24 24">
+    <use href="#jf-arm"/>
+    <use href="#jf-arm" transform="rotate(60 12 12)"/>
+    <use href="#jf-arm" transform="rotate(120 12 12)"/>
+    <use href="#jf-arm" transform="rotate(180 12 12)"/>
+    <use href="#jf-arm" transform="rotate(240 12 12)"/>
+    <use href="#jf-arm" transform="rotate(300 12 12)"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13.5 6.5 19 12l-5.5 5.5"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.4 3h3l1.5 4-2 1.4a12.2 12.2 0 0 0 6.7 6.7l1.4-2 4 1.5v3a2 2 0 0 1-2.2 2A17.2 17.2 0 0 1 4.4 5.2 2 2 0 0 1 6.4 3Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m4.5 12.5 5 5 10-11"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.2 14.6A8.6 8.6 0 0 1 9.4 3.8a8.6 8.6 0 1 0 10.8 10.8Z"/></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24"><path d="M2.8 6.4h10.4v9.2H2.8zM13.2 9.6h3.5l2.5 2.8v3.2h-6z"/><circle cx="6.6" cy="17.8" r="1.8"/><circle cx="16.6" cy="17.8" r="1.8"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.2V12l3.2 2"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.2s6.6-5.8 6.6-10.4a6.6 6.6 0 1 0-13.2 0C5.4 15.4 12 21.2 12 21.2Z"/><circle cx="12" cy="10.6" r="2.4"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9.5 5 7 7-7 7"/></symbol>
+</svg>
+
+<div class="grain" aria-hidden="true"></div>
+<a href="#main" class="skip-link">Ugrás a tartalomra</a>
+
+<header class="masthead">
+  <nav class="nav" aria-label="Főmenü">
+    <a href="index.html" class="brand" aria-label="Jég Futár — főoldal">
+      <svg class="brand__mark" aria-hidden="true"><use href="#i-crystal"/></svg>
+      <span class="brand__word">Jég&nbsp;Futár</span>
+    </a>
+    <ul class="nav__links" id="nav-links">
+      <li><a href="termekek.html" class="nav__link">Termékek</a></li>
+      <li><a href="kiszallitas.html" class="nav__link" aria-current="page">Kiszállítás</a></li>
+      <li><a href="huto-kihelyezes.html" class="nav__link">Hűtő kihelyezés</a></li>
+      <li><a href="rolunk.html" class="nav__link">Rólunk</a></li>
+      <li><a href="kapcsolat.html" class="nav__link">Kapcsolat</a></li>
+      <li class="nav__drawer-foot">
+        <a href="tel:+36706066181" class="btn btn--block">
+          <svg aria-hidden="true"><use href="#i-phone"/></svg>
+          +36 70 606 6181
+        </a>
+      </li>
+    </ul>
+    <div class="nav__tail">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Világos téma bekapcsolása">
+        <svg class="ico-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="ico-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <a href="tel:+36706066181" class="btn btn--sm nav__cta-desktop">
+        <svg aria-hidden="true"><use href="#i-phone"/></svg>
+        +36 70 606 6181
+      </a>
+      <button class="nav__burger" type="button" data-drawer-toggle
+              aria-expanded="false" aria-controls="nav-links" aria-label="Menü megnyitása">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="page-head" aria-labelledby="page-title">
+    <div class="aurora" aria-hidden="true">
+      <div class="aurora__blob"></div>
+      <div class="aurora__blob"></div>
+      <div class="aurora__blob"></div>
+    </div>
+
+    <div class="shell page-head__inner">
+      <nav class="crumb reveal" aria-label="Morzsamenü">
+        <a href="index.html">Főoldal</a>
+        <svg aria-hidden="true"><use href="#i-chev"/></svg>
+        <span aria-current="page">Kiszállítás</span>
+      </nav>
+
+      <h1 class="display-xl page-head__title reveal-lines" id="page-title">
+        <span class="line"><span>Szegeden bárhová.</span></span>
+        <span class="line"><span><em>Ingyenesen</em>.</span></span>
+      </h1>
+
+      <p class="lede page-head__lede reveal" style="--delay:280ms">
+        Rendelje meg telefonon, és a megbeszélt időpontban ott vagyunk.
+        A kiszállítás díja minden rendelésnél 0 Ft — mennyiségtől függetlenül.
+      </p>
+
+      <div class="cluster reveal" style="--delay:360ms">
+        <a href="tel:+36706066181" class="btn" data-magnetic="0.2">
+          <svg aria-hidden="true"><use href="#i-phone"/></svg>
+          +36 70 606 6181
+        </a>
+        <a href="termekek.html" class="btn btn--ghost">
+          Termékek és árak
+          <svg aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ A 0 Ft ══════════════════════════════════════════════ -->
+  <section class="section section--flush-top" aria-labelledby="zero-title">
+    <div class="shell split-5-7">
+      <div class="zero-panel__figure reveal">
+        <span class="zero-panel__num">0<sup>Ft</sup></span>
+        <span class="mono text-muted">Kiszállítási díj</span>
+      </div>
+
+      <div class="stack stack-5">
+        <p class="eyebrow reveal">Az ajánlat</p>
+        <h2 class="display reveal" id="zero-title">Nincs csillag,<br>nincs apró betű.</h2>
+        <div class="prose reveal" style="--delay:120ms">
+          <p>
+            A kiszállítás Szegeden és a közvetlen környéken <strong>minden
+            rendelésnél ingyenes</strong>. Nem a rendelés értékétől függ,
+            nem akciós időszakhoz kötött, és nem kell hozzá kuponkód.
+          </p>
+          <p>
+            Ennek egyszerű oka van: mi amúgy is járjuk a várost a napi
+            körökkel. Ha Ön útba esik — és Szegeden belül szinte mindenki
+            útba esik —, akkor a szállítás nekünk nem plusz költség.
+          </p>
+        </div>
+
+        <div class="cluster reveal" style="--delay:180ms">
+          <a href="tel:+36706066181" class="arrow-link">
+            Kérdéses a címe? Hívjon
+            <svg aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Folyamat ════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="how-title">
+    <div class="shell">
+      <div class="section-head section-head--split">
+        <div class="stack stack-4">
+          <p class="eyebrow reveal">Folyamat</p>
+          <h2 class="display-lg reveal-lines" id="how-title">
+            <span class="line"><span>Három lépés,</span></span>
+            <span class="line"><span>és úton van.</span></span>
+          </h2>
+        </div>
+        <p class="body reveal max-44" style="--delay:160ms">
+          Nincs webshop, nincs regisztráció, nincs kosár. Egy telefonhívás,
+          és a többit intézzük.
+        </p>
+      </div>
+
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step__num">01 — Hívás</span>
+          <h3 class="step__title">Mondja el, mire van szüksége</h3>
+          <p class="step__body">
+            Terméktípus, hozzávetőleges mennyiség, cím és időpont.
+            Ha nem tudja pontosan, mennyi kell, segítünk megbecsülni.
+          </p>
+        </div>
+        <div class="step">
+          <span class="step__num">02 — Gyártás</span>
+          <h3 class="step__title">Frissen készítjük el</h3>
+          <p class="step__body">
+            A rendelést a modern olasz gépen, tisztított vízből gyártjuk le.
+            Nem raktári készletből, nem újrafagyasztott jégből.
+          </p>
+        </div>
+        <div class="step">
+          <span class="step__num">03 — Szállítás</span>
+          <h3 class="step__title">Odavisszük, díj nélkül</h3>
+          <p class="step__body">
+            A megbeszélt időpontban érkezünk a megadott szegedi címre.
+            A kiszállítás minden rendelésnél 0 Ft.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Terület ═════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="area-title">
+    <div class="shell split-7-5">
+      <div class="stack stack-6">
+        <p class="eyebrow reveal">Terület</p>
+        <h2 class="display reveal" id="area-title">Hová szállítunk?</h2>
+
+        <p class="body reveal max-54" style="--delay:100ms">
+          Szeged teljes területére és a közvetlen agglomerációba szállítunk.
+          Ha a címe a határon van, egy hívás alatt megmondjuk, hogy belefér-e —
+          és ha nem, azt is őszintén megmondjuk.
+        </p>
+
+        <div class="area-list reveal" style="--delay:160ms" role="list">
+          <div class="area-list__item" role="listitem">
+            <svg aria-hidden="true"><use href="#i-check"/></svg>
+            Szeged belváros
+          </div>
+          <div class="area-list__item" role="listitem">
+            <svg aria-hidden="true"><use href="#i-check"/></svg>
+            Szeged összes városrésze
+          </div>
+          <div class="area-list__item" role="listitem">
+            <svg aria-hidden="true"><use href="#i-check"/></svg>
+            Közvetlen agglomeráció
+          </div>
+          <div class="area-list__item" role="listitem">
+            <svg aria-hidden="true"><use href="#i-pin"/></svg>
+            Határeset? Hívjon, és egyeztetünk
+          </div>
+        </div>
+      </div>
+
+      <div class="map-plate reveal" style="--delay:120ms" role="img"
+           aria-label="Kiszállítási terület: Szeged és a közvetlen agglomeráció — sematikus ábra">
+        <span class="map-plate__ring map-plate__ring--a" aria-hidden="true"></span>
+        <span class="map-plate__ring map-plate__ring--b" aria-hidden="true"></span>
+        <span class="map-plate__pin" aria-hidden="true">
+          <svg><use href="#i-pin"/></svg>
+          <span>Szeged</span>
+        </span>
+        <span class="map-plate__note" aria-hidden="true">46.2530° É · 20.1414° K</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Számok ══════════════════════════════════════════════ -->
+  <section class="section section--tight" aria-labelledby="facts-title">
+    <div class="shell">
+      <h2 class="sr-only" id="facts-title">Kiszállítás számokban</h2>
+      <div class="stat-grid">
+        <div class="stat reveal">
+          <span class="stat__value">0<sup>Ft</sup></span>
+          <span class="stat__label">Szállítási díj</span>
+          <p class="stat__note">Minden rendelésnél, mennyiségtől függetlenül.</p>
+        </div>
+        <div class="stat reveal" style="--delay:90ms">
+          <span class="stat__value">7</span>
+          <span class="stat__label">Nap a héten</span>
+          <p class="stat__note">Hétfőtől vasárnapig hívható és egyeztethető.</p>
+        </div>
+        <div class="stat reveal" style="--delay:180ms">
+          <span class="stat__value">2018</span>
+          <span class="stat__label">Óta szállítunk</span>
+          <p class="stat__note">Szegedi vállalkozásként, helyi ismerettel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closer" aria-labelledby="closer-title">
+    <div class="aurora" aria-hidden="true">
+      <div class="aurora__blob"></div>
+      <div class="aurora__blob"></div>
+      <div class="aurora__blob"></div>
+    </div>
+    <div class="shell closer__inner">
+      <p class="eyebrow eyebrow--plain reveal">Rendelés</p>
+      <h2 class="display-xl reveal" id="closer-title" style="--delay:80ms">Hívjon most,<br>szállítunk ma.</h2>
+      <a href="tel:+36706066181" class="phone-display reveal" style="--delay:160ms" data-magnetic="0.12">+36 70 606 6181</a>
+      <div class="closer__meta reveal" style="--delay:240ms">
+        <span>Hétfő — Vasárnap</span>
+        <span>Szeged és környéke</span>
+        <span>Kiszállítás 0 Ft</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="shell">
+    <p class="footer__statement reveal-lines">
+      <span class="line"><span>Friss jég.</span></span>
+      <span class="line"><span>Szegeden. <span>Ma.</span></span></span>
+    </p>
+    <div class="footer__grid">
+      <div class="footer__col">
+        <a href="index.html" class="brand" aria-label="Jég Futár — főoldal">
+          <svg class="brand__mark" aria-hidden="true"><use href="#i-crystal"/></svg>
+          <span class="brand__word">Jég&nbsp;Futár</span>
+        </a>
+        <p class="body-sm max-44" style="margin-top:.5rem">
+          Jégkocka és jégdara kiszállítás Szegeden és környékén, 2018 óta.
+        </p>
+      </div>
+      <nav class="footer__col" aria-label="Szolgáltatások">
+        <p class="footer__title">Szolgáltatás</p>
+        <a href="termekek.html" class="footer__link">Termékek &amp; árak</a>
+        <a href="kiszallitas.html" class="footer__link">Kiszállítás</a>
+        <a href="huto-kihelyezes.html" class="footer__link">Hűtő kihelyezés</a>
+      </nav>
+      <nav class="footer__col" aria-label="Cég">
+        <p class="footer__title">Cég</p>
+        <a href="rolunk.html" class="footer__link">Rólunk</a>
+        <a href="kapcsolat.html" class="footer__link">Kapcsolat</a>
+      </nav>
+      <div class="footer__col">
+        <p class="footer__title">Kapcsolat</p>
+        <a href="tel:+36706066181" class="footer__link">+36 70 606 6181</a>
+        <a href="mailto:info@jeg-futar.hu" class="footer__link">info@jeg-futar.hu</a>
+        <p class="body-sm text-muted" style="margin-top:.35rem">Hétfőtől vasárnapig</p>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <span>© 2026 Jég Futár · Szeged</span>
+      <span>Minden jog fenntartva</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

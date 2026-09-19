@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="hu" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kapcsolat — Jég Futár</title>
+<meta name="description" content="Jég Futár elérhetőségek: +36 70 606 6181, info@jeg-futar.hu. Hétfőtől vasárnapig, Szeged és környéke.">
+<meta name="theme-color" content="#0b0f16">
+<link rel="canonical" href="https://jeg-futar.hu/kapcsolat.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..500&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@300..500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/main.css">
+
+<script>
+  (function () {
+    document.documentElement.classList.add('js');
+    try {
+      var t = localStorage.getItem('jf-theme');
+      if (t) { document.documentElement.dataset.theme = t; }
+      else { document.documentElement.removeAttribute('data-theme'); }
+    } catch (e) {}
+  })();
+</script>
+
+<style>
+  .contact-card {
+    display: grid;
+    gap: var(--s-5);
+    padding: clamp(1.75rem, 4vw, 2.75rem);
+    border-radius: var(--r-lg);
+    border: 1px solid var(--line-strong);
+    background:
+      radial-gradient(120% 90% at 20% 0%, var(--accent-wash), transparent 62%),
+      var(--bg-inset);
+  }
+
+  .contact-row { display: grid; gap: var(--s-2); }
+
+  .contact-row__value {
+    font-size: var(--t-lg);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    color: var(--text);
+    width: fit-content;
+    transition: color var(--d-fast) var(--ease);
+  }
+
+  a.contact-row__value:hover { color: var(--accent); }
+
+  .contact-row__sub { font-size: var(--t-sm); color: var(--text-3); }
+
+  .contact-card__divider { height: 1px; background: var(--line); }
+
+  .hours { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: var(--s-5); }
+
+  .hours__item {
+    display: grid;
+    gap: var(--s-1);
+    padding-top: var(--s-4);
+    border-top: 1px solid var(--line);
+  }
+
+  .hours__day { font-size: var(--t-sm); font-weight: 550; color: var(--text); }
+  .hours__time { font-size: var(--t-sm); color: var(--text-2); }
+</style>
+</head>
+
+<body>
+
+<svg class="sr-only" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <g id="jf-arm" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 12.4V2.9"/>
+      <path d="M10.65 4.45 12 5.8l1.35-1.35"/>
+      <path d="M10.2 7.2 12 9l1.8-1.8"/>
+    </g>
+  </defs>
+  <symbol id="i-crystal" viewBox="0 0 24 24">
+    <use href="#jf-arm"/>
+    <use href="#jf-arm" transform="rotate(60 12 12)"/>
+    <use href="#jf-arm" transform="rotate(120 12 12)"/>
+    <use href="#jf-arm" transform="rotate(180 12 12)"/>
+    <use href="#jf-arm" transform="rotate(240 12 12)"/>
+    <use href="#jf-arm" transform="rotate(300 12 12)"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13.5 6.5 19 12l-5.5 5.5"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.4 3h3l1.5 4-2 1.4a12.2 12.2 0 0 0 6.7 6.7l1.4-2 4 1.5v3a2 2 0 0 1-2.2 2A17.2 17.2 0 0 1 4.4 5.2 2 2 0 0 1 6.4 3Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m4.5 12.5 5 5 10-11"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16.2v.01"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.2 14.6A8.6 8.6 0 0 1 9.4 3.8a8.6 8.6 0 1 0 10.8 10.8Z"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9.5 5 7 7-7 7"/></symbol>
+</svg>
+
+<div class="grain" aria-hidden="true"></div>
+<a href="#main" class="skip-link">Ugrás a tartalomra</a>
+
+<header class="masthead">
+  <nav class="nav" aria-label="Főmenü">
+    <a href="index.html" class="brand" aria-label="Jég Futár — főoldal">
+      <svg class="brand__mark" aria-hidden="true"><use href="#i-crystal"/></svg>
+      <span class="brand__word">Jég&nbsp;Futár</span>
+    </a>
+    <ul class="nav__links" id="nav-links">
+      <li><a href="termekek.html" class="nav__link">Termékek</a></li>
+      <li><a href="kiszallitas.html" class="nav__link">Kiszállítás</a></li>
+      <li><a href="huto-kihelyezes.html" class="nav__link">Hűtő kihelyezés</a></li>
+      <li><a href="rolunk.html" class="nav__link">Rólunk</a></li>
+      <li><a href="kapcsolat.html" class="nav__link" aria-current="page">Kapcsolat</a></li>
+      <li class="nav__drawer-foot">
+        <a href="tel:+36706066181" class="btn btn--block">
+          <svg aria-hidden="true"><use href="#i-phone"/></svg>
+          +36 70 606 6181
+        </a>
+      </li>
+    </ul>
+    <div class="nav__tail">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Világos téma bekapcsolása">
+        <svg class="ico-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="ico-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <a href="tel:+36706066181" class="btn btn--sm nav__cta-desktop">
+        <svg aria-hidden="true"><use href="#i-phone"/></svg>
+        +36 70 606 6181
+      </a>
+      <button class="nav__burger" type="button" data-drawer-toggle
+              aria-expanded="false" aria-controls="nav-links" aria-label="Menü megnyitása">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="page-head" aria-labelledby="page-title">
+    <div class="aurora" aria-hidden="true">
+      <div class="aurora__blob"></div>
+      <div class="aurora__blob"></div>
+      <div class="aurora__blob"></div>
+    </div>
+
+    <div class="shell page-head__inner">
+      <nav class="crumb reveal" aria-label="Morzsamenü">
+        <a href="index.html">Főoldal</a>
+        <svg aria-hidden="true"><use href="#i-chev"/></svg>
+        <span aria-current="page">Kapcsolat</span>
+      </nav>
+
+      <h1 class="display-xl page-head__title reveal-lines" id="page-title">
+        <span class="line"><span>Hívjon.</span></span>
+        <span class="line"><span><em>Gyorsan</em> válaszolunk.</span></span>
+      </h1>
+
+      <p class="lede page-head__lede reveal" style="--delay:280ms">
+        A leggyorsabb elérési módunk a telefon — rendeléshez, ajánlatkéréshez
+        és hűtő kihelyezési kérdésekhez egyaránt.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ Elérhetőségek ═══════════════════════════════════════ -->
+  <section class="section section--flush-top" aria-labelledby="details-title">
+    <div class="shell split-7-5">
+      <div class="stack stack-6">
+        <p class="eyebrow reveal" id="details-title">Elérhetőség</p>
+
+        <a href="tel:+36706066181" class="phone-display reveal" style="--delay:80ms" data-magnetic="0.14">
+          +36 70 606 6181
+        </a>
+
+        <p class="body reveal max-54" style="--delay:140ms">
+          Hétfőtől vasárnapig hívható. Mondja el, mire van szüksége, és
+          a hívás alatt letisztázzuk a mennyiséget, az árat és az időpontot.
+        </p>
+
+        <div class="hours reveal" style="--delay:200ms">
+          <div class="hours__item">
+            <span class="hours__day">Hétfő — Péntek</span>
+            <span class="hours__time">Telefonon egyeztetünk</span>
+          </div>
+          <div class="hours__item">
+            <span class="hours__day">Szombat — Vasárnap</span>
+            <span class="hours__time">Telefonon egyeztetünk</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="contact-card reveal" style="--delay:120ms" aria-label="Elérhetőségi adatok">
+        <div class="contact-row">
+          <span class="mono text-muted">Telefon</span>
+          <a href="tel:+36706066181" class="contact-row__value">+36 70 606 6181</a>
+          <span class="contact-row__sub">Hétfőtől vasárnapig</span>
+        </div>
+
+        <div class="contact-card__divider" role="separator"></div>
+
+        <div class="contact-row">
+          <span class="mono text-muted">E-mail</span>
+          <a href="mailto:info@jeg-futar.hu" class="contact-row__value">info@jeg-futar.hu</a>
+          <span class="contact-row__sub">Általában 24 órán belül válaszolunk</span>
+        </div>
+
+        <div class="contact-card__divider" role="separator"></div>
+
+        <div class="contact-row">
+          <span class="mono text-muted">Terület</span>
+          <span class="contact-row__value">Szeged</span>
+          <span class="contact-row__sub">Szegeden és a közvetlen környéken szállítunk</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ═══ Űrlap ═══════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="form-title">
+    <div class="shell split-5-7">
+      <div class="stack stack-4 sticky-aside">
+        <p class="eyebrow reveal">Üzenet</p>
+        <h2 class="display reveal" id="form-title">Inkább írna?</h2>
+        <p class="body-sm reveal max-44" style="--delay:120ms">
+          Írja meg a kérdését, és visszahívjuk. Ha úgy kényelmesebb,
+          e-mailben is válaszolunk.
+        </p>
+      </div>
+
+      <!-- A működéshez kösse be egy backendre (Formspree, Netlify Forms vagy saját PHP). -->
+      <form class="form reveal" data-contact-form novalidate aria-label="Kapcsolatfelvételi űrlap">
+        <div class="form__row">
+          <div class="field">
+            <label class="field__label" for="f-name">Neve <span class="field__req" aria-hidden="true">*</span></label>
+            <input class="field__input" type="text" id="f-name" name="name"
+                   autocomplete="name" placeholder="Kovács János" required>
+            <p class="field__error" id="e-name">
+              <svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>
+              Kérjük, adja meg a nevét.
+            </p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="f-phone">Telefonszám</label>
+            <input class="field__input" type="tel" id="f-phone" name="phone"
+                   autocomplete="tel" placeholder="+36 30 123 4567">
+            <p class="field__error">
+              <svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>
+              Ellenőrizze a telefonszámot.
+            </p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="f-email">E-mail <span class="field__req" aria-hidden="true">*</span></label>
+          <input class="field__input" type="email" id="f-email" name="email"
+                 autocomplete="email" placeholder="pelda@email.hu" required>
+          <p class="field__error">
+            <svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>
+            Adjon meg egy érvényes e-mail címet.
+          </p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="f-message">Üzenet <span class="field__req" aria-hidden="true">*</span></label>
+          <textarea class="field__textarea" id="f-message" name="message" required
+                    placeholder="Miben segíthetünk? Rendelés, hűtő kihelyezés, ajánlatkérés…"></textarea>
+          <p class="field__hint">Ha tudja, írja meg a mennyiséget és a kívánt időpontot is.</p>
+          <p class="field__error">
+            <svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>
+            Írjon pár szót arról, miben segíthetünk.
+          </p>
+        </div>
+
+        <div class="form__status" data-form-status role="status" tabindex="-1">
+          <svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>
+          <span>Köszönjük! Az üzenetet megkaptuk, hamarosan jelentkezünk.</span>
+        </div>
+
+        <div class="form__foot">
+          <p class="field__hint">A <span class="text-accent">*</span> jelölt mezők kitöltése kötelező.</p>
+          <button type="submit" class="btn">
+            Üzenet küldése
+            <svg aria-hidden="true"><use href="#i-arrow"/></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="closer" aria-labelledby="closer-title">
+    <div class="aurora" aria-hidden="true">
+      <div class="aurora__blob"></div>
+      <div class="aurora__blob"></div>
+      <div class="aurora__blob"></div>
+    </div>
+    <div class="shell closer__inner">
+      <p class="eyebrow eyebrow--plain reveal">Gyors rendelés</p>
+      <h2 class="display-xl reveal" id="closer-title" style="--delay:80ms">Hívjon most.<br>Ma szállítunk.</h2>
+      <a href="tel:+36706066181" class="phone-display reveal" style="--delay:160ms" data-magnetic="0.12">+36 70 606 6181</a>
+      <div class="closer__meta reveal" style="--delay:240ms">
+        <span>Hétfő — Vasárnap</span>
+        <span>Szeged és környéke</span>
+        <span>Kiszállítás 0 Ft</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="shell">
+    <p class="footer__statement reveal-lines">
+      <span class="line"><span>Friss jég.</span></span>
+      <span class="line"><span>Szegeden. <span>Ma.</span></span></span>
+    </p>
+    <div class="footer__grid">
+      <div class="footer__col">
+        <a href="index.html" class="brand" aria-label="Jég Futár — főoldal">
+          <svg class="brand__mark" aria-hidden="true"><use href="#i-crystal"/></svg>
+          <span class="brand__word">Jég&nbsp;Futár</span>
+        </a>
+        <p class="body-sm max-44" style="margin-top:.5rem">
+          Jégkocka és jégdara kiszállítás Szegeden és környékén, 2018 óta.
+        </p>
+      </div>
+      <nav class="footer__col" aria-label="Szolgáltatások">
+        <p class="footer__title">Szolgáltatás</p>
+        <a href="termekek.html" class="footer__link">Termékek &amp; árak</a>
+        <a href="kiszallitas.html" class="footer__link">Kiszállítás</a>
+        <a href="huto-kihelyezes.html" class="footer__link">Hűtő kihelyezés</a>
+      </nav>
+      <nav class="footer__col" aria-label="Cég">
+        <p class="footer__title">Cég</p>
+        <a href="rolunk.html" class="footer__link">Rólunk</a>
+        <a href="kapcsolat.html" class="footer__link">Kapcsolat</a>
+      </nav>
+      <div class="footer__col">
+        <p class="footer__title">Kapcsolat</p>
+        <a href="tel:+36706066181" class="footer__link">+36 70 606 6181</a>
+        <a href="mailto:info@jeg-futar.hu" class="footer__link">info@jeg-futar.hu</a>
+        <p class="body-sm text-muted" style="margin-top:.35rem">Hétfőtől vasárnapig</p>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <span>© 2026 Jég Futár · Szeged</span>
+      <span>Minden jog fenntartva</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
