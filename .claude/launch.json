@@ -1,11 +1,6 @@
 {
   "version": "0.0.1",
   "configurations": [
-    {
-      "name": "redesign",
-      "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "5510", "--directory", "redesign"],
-      "port": 5510
-    }
+    { "name": "redesign", "runtimeExecutable": "python", "runtimeArgs": ["-m", "http.server", "5178", "--directory", "redesign"], "port": 5178 }
   ]
 }

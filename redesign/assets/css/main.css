@@ -550,14 +550,16 @@ table { border-collapse: collapse; width: 100%; }
   .nav__tail .nav__cta-desktop { display: none; }
 }
 
-@media (min-width: 1001px) {
-  .nav__drawer-foot { display: none; }
-}
-
+/* Drawer-only CTA: base is the mobile state, desktop hides it below.
+   Order matters — an equal-specificity rule later in the file would win. */
 .nav__drawer-foot {
   margin-top: var(--s-7);
   display: grid;
   gap: var(--s-4);
+}
+
+@media (min-width: 1001px) {
+  .nav__drawer-foot { display: none; }
 }
 
 /* ── 07 · Buttons & links ───────────────────────────────────── */
