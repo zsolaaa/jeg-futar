@@ -8,6 +8,22 @@
 <meta name="theme-color" content="#0b0f16">
 <link rel="canonical" href="https://jeg-futar.hu/termekek.html">
 
+<meta property="og:type" content="website">
+<meta property="og:locale" content="hu_HU">
+<meta property="og:site_name" content="Jég Futár">
+<meta property="og:url" content="https://jeg-futar.hu/termekek.html">
+<meta property="og:title" content="Termékek — Jég Futár">
+<meta property="og:description" content="Jégkocka és jégdara Szegeden. Terméktulajdonságok, felhasználás és a rendelés menete. Kiszállítás 0 Ft.">
+<meta property="og:image" content="https://jeg-futar.hu/assets/img/og-jeg-futar.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta property="og:image:alt" content="Kristálytiszta jégkockák sötét, nedves felületen">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Termékek — Jég Futár">
+<meta name="twitter:description" content="Jégkocka és jégdara Szegeden. Terméktulajdonságok, felhasználás és a rendelés menete. Kiszállítás 0 Ft.">
+<meta name="twitter:image" content="https://jeg-futar.hu/assets/img/og-jeg-futar.jpg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..500&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@300..500&display=swap" rel="stylesheet">
@@ -57,10 +73,31 @@
     color: var(--accent);
   }
 
-  .product-detail__media svg { width: 34%; height: auto; stroke-width: 0.85; opacity: 0.85; }
+  .product-detail__media picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .product-detail__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .product-detail__media::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 38%;
+    background: linear-gradient(to bottom, var(--hero-scrim), transparent);
+    pointer-events: none;
+  }
 
   .product-detail__tag {
     position: absolute;
+    z-index: 1;
     top: var(--s-4);
     left: var(--s-4);
     font-family: var(--font-mono);
@@ -207,7 +244,16 @@
       <article class="product-detail reveal">
         <div class="product-detail__media">
           <span class="product-detail__tag">01 — Jégkocka</span>
-          <svg aria-hidden="true"><use href="#i-cube"/></svg>
+          <picture>
+            <source type="image/avif"
+                    srcset="assets/img/ice-cubes-800.avif 800w, assets/img/ice-cubes-1400.avif 1400w"
+                    sizes="(max-width: 880px) 92vw, 46vw">
+            <img src="assets/img/ice-cubes-800.webp"
+                 srcset="assets/img/ice-cubes-800.webp 800w, assets/img/ice-cubes-1400.webp 1400w"
+                 sizes="(max-width: 880px) 92vw, 46vw"
+                 alt="Kristálytiszta jégkockák közelről, nedves sötét felületen"
+                 width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
         </div>
 
         <div class="stack stack-5">
@@ -251,7 +297,16 @@
       <article class="product-detail product-detail--flip reveal" aria-labelledby="grain-title">
         <div class="product-detail__media">
           <span class="product-detail__tag">02 — Jégdara</span>
-          <svg aria-hidden="true"><use href="#i-grain"/></svg>
+          <picture>
+            <source type="image/avif"
+                    srcset="assets/img/ice-nugget-800.avif 800w, assets/img/ice-nugget-1400.avif 1400w"
+                    sizes="(max-width: 880px) 92vw, 46vw">
+            <img src="assets/img/ice-nugget-800.webp"
+                 srcset="assets/img/ice-nugget-800.webp 800w, assets/img/ice-nugget-1400.webp 1400w"
+                 sizes="(max-width: 880px) 92vw, 46vw"
+                 alt="Jégdara közelről — apró, áttetsző jégszemcsék"
+                 width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
         </div>
 
         <div class="stack stack-5">

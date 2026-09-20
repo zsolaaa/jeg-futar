@@ -10,8 +10,19 @@
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="hu_HU">
+<meta property="og:site_name" content="Jég Futár">
+<meta property="og:url" content="https://jeg-futar.hu/">
 <meta property="og:title" content="Jég Futár — Prémium jég, ingyenes kiszállítással">
 <meta property="og:description" content="Jégkocka és jégdara Szegeden, kiszállítási díj nélkül. Hétfőtől vasárnapig.">
+<meta property="og:image" content="https://jeg-futar.hu/assets/img/og-jeg-futar.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta property="og:image:alt" content="Kristálytiszta jégkockák sötét, nedves felületen">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jég Futár — Prémium jég, ingyenes kiszállítással">
+<meta name="twitter:description" content="Jégkocka és jégdara Szegeden, kiszállítási díj nélkül. Hétfőtől vasárnapig.">
+<meta name="twitter:image" content="https://jeg-futar.hu/assets/img/og-jeg-futar.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,6 +71,21 @@
     isolation: isolate;
   }
 
+  .hero__photo {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Keep the cube in the right third, clear of the headline column. */
+    object-position: 82% 56%;
+  }
+
   .hero__canvas {
     position: absolute;
     inset: 0;
@@ -72,12 +98,24 @@
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    background: radial-gradient(130% 90% at 50% 0%, transparent 38%, var(--bg) 100%);
+    background:
+      /* Top band: the masthead is transparent at scroll-top and its links
+         would otherwise sit on the photo — unreadable in the light theme. */
+      linear-gradient(to bottom, var(--bg) 0%, var(--hero-scrim) 7%, transparent 21%),
+      linear-gradient(to right, var(--bg) 0%, var(--hero-scrim) 40%, transparent 74%),
+      linear-gradient(to top, var(--bg) 1%, var(--hero-scrim) 16%, transparent 48%),
+      radial-gradient(130% 90% at 50% 0%, transparent 38%, var(--bg) 100%);
   }
 
   .hero__inner { position: relative; z-index: 1; width: 100%; }
 
-  .hero__title { margin-block: var(--s-5) var(--s-5); max-width: 15ch; }
+  /* The headline crosses the ice; a soft same-colour halo keeps it legible
+     without reading as a glow on the dark side. */
+  .hero__title {
+    margin-block: var(--s-5) var(--s-5);
+    max-width: 15ch;
+    text-shadow: var(--hero-type-shadow);
+  }
 
   .hero__actions { margin-top: var(--s-5); }
 
@@ -128,7 +166,27 @@
     line-height: 1.9;
   }
 
+  @media (max-width: 680px) and (prefers-color-scheme: light) {
+    :root:not([data-theme]) .hero__photo { display: none; }
+  }
+
   @media (max-width: 680px) {
+    /* The phone crop puts the ice up top, so the scrim runs bottom-up instead. */
+    .hero__photo img { object-position: 50% 12%; }
+
+    .hero__vignette {
+      background:
+        linear-gradient(to bottom, var(--bg) 0%, var(--hero-scrim) 6%, transparent 15%),
+        linear-gradient(to top, var(--bg) 26%, var(--hero-scrim) 48%, transparent 76%),
+        radial-gradient(130% 70% at 50% 0%, transparent 44%, var(--bg) 100%);
+    }
+
+    /* Stacked on a phone the headline sits ON the photo rather than beside it.
+       That works on the dark key; on the light one, dark ink over dark ice does
+       not, and no scrim fixes it without erasing the image. The light theme
+       keeps its own gradient hero there. */
+    :root[data-theme="light"] .hero__photo { display: none; }
+
     /* Keep the 0 Ft / 7 nap / 2018 strip inside the first viewport on a phone. */
     .hero { padding-top: clamp(5.5rem, 11vh, 7rem); }
     .hero__title { margin-block: var(--s-4) var(--s-4); }
@@ -169,10 +227,34 @@
     margin-bottom: var(--s-2);
   }
 
-  .product__figure svg { width: 30%; height: auto; stroke-width: 0.9; opacity: 0.8; }
+  /* The figure is a centring grid (it used to hold an icon), so the picture
+     has to be told to fill it — otherwise the image sits at content size. */
+  .product__figure picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .product__figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* The index badge sits over the brightest part of the photo. */
+  .product__figure::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 42%;
+    background: linear-gradient(to bottom, var(--hero-scrim), transparent);
+    pointer-events: none;
+  }
 
   .product__index {
     position: absolute;
+    z-index: 1;
     top: var(--s-4);
     left: var(--s-4);
     font-family: var(--font-mono);
@@ -315,6 +397,17 @@
       <div class="aurora__blob"></div>
       <div class="aurora__blob"></div>
     </div>
+    <picture class="hero__photo">
+      <source media="(max-width: 680px)" type="image/avif"
+              srcset="assets/img/hero-mobile-750.avif 750w, assets/img/hero-mobile-941.avif 941w" sizes="100vw">
+      <source media="(max-width: 680px)" type="image/webp"
+              srcset="assets/img/hero-mobile-750.webp 750w, assets/img/hero-mobile-941.webp 941w" sizes="100vw">
+      <source type="image/avif"
+              srcset="assets/img/hero-1200.avif 1200w, assets/img/hero-1672.avif 1672w" sizes="100vw">
+      <img src="assets/img/hero-1672.webp"
+           srcset="assets/img/hero-1200.webp 1200w, assets/img/hero-1672.webp 1672w" sizes="100vw"
+           alt="" width="1672" height="941" fetchpriority="high" decoding="async">
+    </picture>
     <canvas class="hero__canvas" data-ice-canvas aria-hidden="true"></canvas>
     <div class="hero__vignette" aria-hidden="true"></div>
 
@@ -435,7 +528,16 @@
         <article class="card card--glow card--lift reveal">
           <div class="product__figure">
             <span class="product__index">01</span>
-            <svg aria-hidden="true"><use href="#i-cube"/></svg>
+            <picture>
+              <source type="image/avif"
+                      srcset="assets/img/ice-cubes-800.avif 800w, assets/img/ice-cubes-1400.avif 1400w"
+                      sizes="(max-width: 900px) 92vw, 33vw">
+              <img src="assets/img/ice-cubes-800.webp"
+                   srcset="assets/img/ice-cubes-800.webp 800w, assets/img/ice-cubes-1400.webp 1400w"
+                   sizes="(max-width: 900px) 92vw, 33vw"
+                   alt="Kristálytiszta jégkockák közelről, nedves sötét felületen"
+                   width="1400" height="788" loading="lazy" decoding="async">
+            </picture>
           </div>
 
           <div class="card__top">
@@ -475,7 +577,16 @@
         <article class="card card--glow card--lift reveal" style="--delay:120ms">
           <div class="product__figure">
             <span class="product__index">02</span>
-            <svg aria-hidden="true"><use href="#i-grain"/></svg>
+            <picture>
+              <source type="image/avif"
+                      srcset="assets/img/ice-nugget-800.avif 800w, assets/img/ice-nugget-1400.avif 1400w"
+                      sizes="(max-width: 900px) 92vw, 33vw">
+              <img src="assets/img/ice-nugget-800.webp"
+                   srcset="assets/img/ice-nugget-800.webp 800w, assets/img/ice-nugget-1400.webp 1400w"
+                   sizes="(max-width: 900px) 92vw, 33vw"
+                   alt="Jégdara közelről — apró, áttetsző jégszemcsék"
+                   width="1400" height="788" loading="lazy" decoding="async">
+            </picture>
           </div>
 
           <div class="card__top">
