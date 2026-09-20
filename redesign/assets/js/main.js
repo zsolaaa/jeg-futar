@@ -13,24 +13,30 @@
 
   /* ── Theme ─────────────────────────────────────────────────── */
   const initTheme = () => {
-    const toggle = $('[data-theme-toggle]');
-    if (!toggle) return;
+    const toggles = $$('[data-theme-toggle]');
+    if (!toggles.length) return;
 
-    const label = () =>
-      root.dataset.theme === 'light' ? 'Sötét téma bekapcsolása' : 'Világos téma bekapcsolása';
+    const isLight = () => root.dataset.theme === 'light';
+    const label = () => (isLight() ? 'Sötét téma bekapcsolása' : 'Világos téma bekapcsolása');
 
     const sync = () => {
-      toggle.setAttribute('aria-label', label());
-      toggle.setAttribute('title', label());
+      toggles.forEach((toggle) => {
+        toggle.setAttribute('aria-label', label());
+        toggle.setAttribute('title', label());
+        const text = $('[data-theme-label]', toggle);
+        if (text) text.textContent = isLight() ? 'Sötét téma' : 'Világos téma';
+      });
     };
 
-    toggle.addEventListener('click', () => {
-      const current = root.dataset.theme ||
-        (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-      const next = current === 'light' ? 'dark' : 'light';
-      root.dataset.theme = next;
-      try { localStorage.setItem('jf-theme', next); } catch (_) {}
-      sync();
+    toggles.forEach((toggle) => {
+      toggle.addEventListener('click', () => {
+        const current = root.dataset.theme ||
+          (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        const next = current === 'light' ? 'dark' : 'light';
+        root.dataset.theme = next;
+        try { localStorage.setItem('jf-theme', next); } catch (_) {}
+        sync();
+      });
     });
 
     sync();
@@ -61,12 +67,22 @@
     if (!burger || !drawer) return;
 
     let lastFocus = null;
+    const background = $$('main, .footer');
+
+    const setBackgroundInert = (on) => {
+      background.forEach((el) => {
+        if (on) el.setAttribute('inert', '');
+        else el.removeAttribute('inert');
+      });
+    };
 
     const close = () => {
       burger.setAttribute('aria-expanded', 'false');
       drawer.classList.remove('is-open');
       document.body.style.removeProperty('overflow');
-      if (lastFocus) lastFocus.focus();
+      setBackgroundInert(false);
+      const back = lastFocus && lastFocus.isConnected ? lastFocus : burger;
+      back.focus();
     };
 
     const open = () => {
@@ -74,8 +90,17 @@
       burger.setAttribute('aria-expanded', 'true');
       drawer.classList.add('is-open');
       document.body.style.overflow = 'hidden';
-      const first = $('a, button', drawer);
-      if (first) first.focus();
+      setBackgroundInert(true);
+      focusFirst();
+    };
+
+    // The sheet can still be visibility:hidden on this tick, in which case focus()
+    // is dropped silently and the Tab trap below never receives a keystroke.
+    const focusFirst = () => {
+      const first = $('a[href], button:not([disabled])', drawer);
+      if (!first) return;
+      first.focus();
+      if (document.activeElement !== first) setTimeout(() => first.focus(), 60);
     };
 
     burger.addEventListener('click', () => {

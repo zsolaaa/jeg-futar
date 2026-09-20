@@ -54,7 +54,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-top: clamp(7rem, 14vh, 10rem);
+    padding-top: clamp(6rem, 12vh, 9rem);
     padding-bottom: var(--s-6);
     overflow: hidden;
     isolation: isolate;
@@ -77,9 +77,9 @@
 
   .hero__inner { position: relative; z-index: 1; width: 100%; }
 
-  .hero__title { margin-block: var(--s-6) var(--s-6); max-width: 15ch; }
+  .hero__title { margin-block: var(--s-5) var(--s-5); max-width: 15ch; }
 
-  .hero__actions { margin-top: var(--s-7); }
+  .hero__actions { margin-top: var(--s-5); }
 
   .hero__foot {
     display: flex;
@@ -87,7 +87,7 @@
     justify-content: space-between;
     gap: var(--s-6);
     flex-wrap: wrap;
-    margin-top: clamp(3rem, 8vh, 6rem);
+    margin-top: clamp(1rem, 3vh, 2.5rem);
     padding-top: var(--s-5);
     border-top: 1px solid var(--line);
   }
@@ -129,7 +129,12 @@
   }
 
   @media (max-width: 680px) {
-    .hero__coords { text-align: left; }
+    /* Keep the 0 Ft / 7 nap / 2018 strip inside the first viewport on a phone. */
+    .hero { padding-top: clamp(5.5rem, 11vh, 7rem); }
+    .hero__title { margin-block: var(--s-4) var(--s-4); }
+    .hero__foot { gap: var(--s-4); margin-top: clamp(1rem, 3vh, 2rem); }
+    .hero__facts { gap: var(--s-3) var(--s-4); }
+    .hero__coords { text-align: left; line-height: 1.5; }
   }
 
   /* — Manifesto — */
@@ -270,6 +275,11 @@
           <svg aria-hidden="true"><use href="#i-phone"/></svg>
           +36 70 606 6181
         </a>
+        <button class="theme-toggle theme-toggle--drawer" type="button" data-theme-toggle>
+          <svg class="ico-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="ico-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+          <span data-theme-label>Világos téma</span>
+        </button>
       </li>
     </ul>
 
@@ -282,6 +292,10 @@
       <a href="tel:+36706066181" class="btn btn--sm nav__cta-desktop">
         <svg aria-hidden="true"><use href="#i-phone"/></svg>
         +36 70 606 6181
+      </a>
+
+      <a href="tel:+36706066181" class="nav__cta-mobile" aria-label="Hívás: +36 70 606 6181">
+        <svg aria-hidden="true"><use href="#i-phone"/></svg>
       </a>
 
       <button class="nav__burger" type="button" data-drawer-toggle
@@ -325,7 +339,7 @@
           +36 70 606 6181
         </a>
         <a href="termekek.html" class="btn btn--ghost btn--lg">
-          Termékek és árak
+          Termékek megtekintése
           <svg aria-hidden="true"><use href="#i-arrow"/></svg>
         </a>
       </div>
@@ -342,7 +356,7 @@
           </div>
           <div class="hero__fact">
             <span class="hero__fact-value">2018</span>
-            <span class="hero__fact-label">Óta szállítunk</span>
+            <span class="hero__fact-label">Alapítva</span>
           </div>
         </div>
 
@@ -452,7 +466,7 @@
 
           <div class="card__foot">
             <a href="termekek.html" class="arrow-link">
-              Részletek és árak
+              Részletek és felhasználás
               <svg aria-hidden="true"><use href="#i-arrow"/></svg>
             </a>
           </div>
@@ -492,7 +506,7 @@
 
           <div class="card__foot">
             <a href="termekek.html" class="arrow-link">
-              Részletek és árak
+              Részletek és felhasználás
               <svg aria-hidden="true"><use href="#i-arrow"/></svg>
             </a>
           </div>
@@ -729,7 +743,7 @@
           <div class="accordion__panel" id="faq-2">
             <div><p>
               A mennyiséget és a feltételeket telefonon egyeztetjük, mert nagyban
-              függ a címtől és az időpontól. Hívjon, és két percben tisztázzuk.
+              függ a címtől és az időponttól. Hívjon, és két percben tisztázzuk.
             </p></div>
           </div>
         </div>
@@ -796,7 +810,7 @@
       <p class="eyebrow eyebrow--plain reveal">Rendelés</p>
 
       <h2 class="display-xl reveal" id="closer-title" style="--delay:80ms">
-        Hívjon.<br>Ma szállítunk.
+        Hívjon.<br>Sokszor még ma szállítunk.
       </h2>
 
       <a href="tel:+36706066181" class="phone-display reveal" style="--delay:160ms" data-magnetic="0.12">
@@ -841,7 +855,7 @@
 
       <nav class="footer__col" aria-label="Szolgáltatások">
         <p class="footer__title">Szolgáltatás</p>
-        <a href="termekek.html" class="footer__link">Termékek &amp; árak</a>
+        <a href="termekek.html" class="footer__link">Termékek</a>
         <a href="kiszallitas.html" class="footer__link">Kiszállítás</a>
         <a href="huto-kihelyezes.html" class="footer__link">Hűtő kihelyezés</a>
       </nav>
