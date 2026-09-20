@@ -43,6 +43,7 @@
 </script>
 
 <style>
+  .cutout--freezer img { max-width: 420px; }
   .benefit {
     display: grid;
     grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
@@ -223,6 +224,20 @@
           <svg aria-hidden="true"><use href="#i-arrow"/></svg>
         </a>
       </div>
+
+      <figure class="cutout cutout--freezer reveal" style="--delay:440ms">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/img/freezer-600.avif 600w, assets/img/freezer-832.avif 832w"
+                  sizes="(max-width: 700px) 78vw, 420px">
+          <img src="assets/img/freezer-600.webp"
+               srcset="assets/img/freezer-600.webp 600w, assets/img/freezer-832.webp 832w"
+               sizes="(max-width: 700px) 78vw, 420px"
+               alt="Jég Futár feliratú, kihelyezhető jégtároló ládahűtő, csúszó üvegtetővel"
+               width="832" height="832" loading="lazy" decoding="async">
+        </picture>
+        <figcaption class="cutout__caption">Ez a hűtő kerül Önhöz</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -446,7 +461,7 @@
       </div>
       <nav class="footer__col" aria-label="Szolgáltatások">
         <p class="footer__title">Szolgáltatás</p>
-        <a href="termekek.html" class="footer__link">Termékek</a>
+        <a href="termekek.html" class="footer__link">Termékek &amp; árak</a>
         <a href="kiszallitas.html" class="footer__link">Kiszállítás</a>
         <a href="huto-kihelyezes.html" class="footer__link">Hűtő kihelyezés</a>
       </nav>

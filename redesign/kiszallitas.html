@@ -43,6 +43,7 @@
 </script>
 
 <style>
+  .cutout--van img { max-width: 760px; }
   .zero-panel__figure {
     display: grid;
     gap: var(--s-2);
@@ -260,6 +261,20 @@
           <svg aria-hidden="true"><use href="#i-arrow"/></svg>
         </a>
       </div>
+
+      <figure class="cutout cutout--van reveal" style="--delay:440ms">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/img/van-700.avif 700w, assets/img/van-1000.avif 1000w"
+                  sizes="(max-width: 700px) 92vw, 760px">
+          <img src="assets/img/van-700.webp"
+               srcset="assets/img/van-700.webp 700w, assets/img/van-1000.webp 1000w"
+               sizes="(max-width: 700px) 92vw, 760px"
+               alt="Jég Futár feliratú kiszállító furgon oldalnézetből"
+               width="1000" height="518" loading="lazy" decoding="async">
+        </picture>
+        <figcaption class="cutout__caption">Ezzel érkezünk Szegeden belül</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -451,7 +466,7 @@
       </div>
       <nav class="footer__col" aria-label="Szolgáltatások">
         <p class="footer__title">Szolgáltatás</p>
-        <a href="termekek.html" class="footer__link">Termékek</a>
+        <a href="termekek.html" class="footer__link">Termékek &amp; árak</a>
         <a href="kiszallitas.html" class="footer__link">Kiszállítás</a>
         <a href="huto-kihelyezes.html" class="footer__link">Hűtő kihelyezés</a>
       </nav>

@@ -432,7 +432,7 @@
           +36 70 606 6181
         </a>
         <a href="termekek.html" class="btn btn--ghost btn--lg">
-          Termékek megtekintése
+          Termékek és árak
           <svg aria-hidden="true"><use href="#i-arrow"/></svg>
         </a>
       </div>
@@ -562,13 +562,13 @@
             </div>
             <div class="spec-list__row">
               <span class="spec-list__key">Ár</span>
-              <span class="spec-list__val"><em>Mennyiség szerint — kérjen ajánlatot</em></span>
+              <span class="spec-list__val"><em>750 Ft/kg-tól</em> — nettó, 100 kg felett kedvezőbb</span>
             </div>
           </div>
 
           <div class="card__foot">
             <a href="termekek.html" class="arrow-link">
-              Részletek és felhasználás
+              Részletek és árak
               <svg aria-hidden="true"><use href="#i-arrow"/></svg>
             </a>
           </div>
@@ -617,7 +617,7 @@
 
           <div class="card__foot">
             <a href="termekek.html" class="arrow-link">
-              Részletek és felhasználás
+              Részletek és árak
               <svg aria-hidden="true"><use href="#i-arrow"/></svg>
             </a>
           </div>
@@ -749,9 +749,18 @@
             </div>
           </div>
 
-          <div class="frost-plate" role="img" aria-label="Kihelyezett jégtároló hűtő — illusztráció">
-            <div class="frost-plate__mark" aria-hidden="true">
-              <svg><use href="#i-fridge"/></svg>
+          <div class="frost-plate">
+            <div class="frost-plate__photo">
+              <picture>
+                <source type="image/avif"
+                        srcset="assets/img/freezer-600.avif 600w, assets/img/freezer-832.avif 832w"
+                        sizes="(max-width: 900px) 84vw, 38vw">
+                <img src="assets/img/freezer-600.webp"
+                     srcset="assets/img/freezer-600.webp 600w, assets/img/freezer-832.webp 832w"
+                     sizes="(max-width: 900px) 84vw, 38vw"
+                     alt="Jég Futár feliratú, kihelyezhető jégtároló ládahűtő"
+                     width="832" height="832" loading="lazy" decoding="async">
+              </picture>
             </div>
             <div class="frost-plate__caption">
               <span>Kihelyezett hűtő</span>
@@ -853,8 +862,11 @@
           </h3>
           <div class="accordion__panel" id="faq-2">
             <div><p>
-              A mennyiséget és a feltételeket telefonon egyeztetjük, mert nagyban
-              függ a címtől és az időponttól. Hívjon, és két percben tisztázzuk.
+              A minimum mennyiséget telefonon egyeztetjük, mert függ a címtől és
+              az időponttól. Az árat viszont nem kell kitalálni: a jégkocka
+              <strong>750 Ft/kg nettó</strong>, 100 kg felett 725, 200 kg felett
+              700 Ft/kg. A teljes lista a
+              <a href="termekek.html#arak">Termékek oldalon</a>.
             </p></div>
           </div>
         </div>
@@ -966,7 +978,7 @@
 
       <nav class="footer__col" aria-label="Szolgáltatások">
         <p class="footer__title">Szolgáltatás</p>
-        <a href="termekek.html" class="footer__link">Termékek</a>
+        <a href="termekek.html" class="footer__link">Termékek &amp; árak</a>
         <a href="kiszallitas.html" class="footer__link">Kiszállítás</a>
         <a href="huto-kihelyezes.html" class="footer__link">Hűtő kihelyezés</a>
       </nav>

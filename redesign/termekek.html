@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Termékek — Jég Futár</title>
+<title>Termékek &amp; árak — Jég Futár</title>
 <meta name="description" content="Jégkocka és jégdara Szegeden. Terméktulajdonságok, felhasználás, szállítási feltételek és rendelés menete. Kiszállítás 0 Ft.">
 <meta name="theme-color" content="#0b0f16">
 <link rel="canonical" href="https://jeg-futar.hu/termekek.html">
@@ -27,6 +27,30 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..500&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@300..500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Jégkocka",
+  "description": "Kristálytiszta jégkocka, 2,5 kg-os kiszerelés. Modern olasz géppel, tisztított vízbázisról.",
+  "brand": { "@type": "Brand", "name": "Jég Futár" },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "HUF",
+    "price": "750",
+    "availability": "https://schema.org/InStock",
+    "areaServed": "Szeged és környéke",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "priceCurrency": "HUF",
+      "price": 750,
+      "valueAddedTaxIncluded": false,
+      "referenceQuantity": { "@type": "QuantitativeValue", "value": 1, "unitCode": "KGM" }
+    }
+  }
+}
+</script>
 
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/main.css">
@@ -104,6 +128,56 @@
     font-size: var(--t-mono);
     letter-spacing: 0.15em;
     text-transform: uppercase;
+    color: var(--text-3);
+  }
+
+  .price-table { display: grid; gap: 0; }
+
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--s-5);
+    padding: var(--s-5) 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .price-row:first-child { border-top: 1px solid var(--line); }
+
+  .price-row__tier {
+    font-family: var(--font-mono);
+    font-size: var(--t-mono);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-2);
+  }
+
+  .price-row__value {
+    font-family: var(--font-display);
+    font-variation-settings: "opsz" 144;
+    font-size: clamp(1.6rem, 3.4vw, 2.5rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.035em;
+    font-feature-settings: "tnum" 1;
+    color: var(--text);
+    white-space: nowrap;
+  }
+
+  .price-row--base .price-row__value { color: var(--accent); }
+
+  .price-row__value small {
+    font-family: var(--font-ui);
+    font-size: 0.42em;
+    font-weight: 450;
+    letter-spacing: 0;
+    color: var(--text-3);
+    margin-left: 0.35em;
+  }
+
+  .price-note {
+    margin-top: var(--s-5);
+    font-size: var(--t-sm);
     color: var(--text-3);
   }
 
@@ -288,7 +362,7 @@
             </div>
             <div class="spec-list__row">
               <span class="spec-list__key">Ár</span>
-              <span class="spec-list__val"><em>Mennyiségtől függ — kérjen ajánlatot telefonon</em></span>
+              <span class="spec-list__val"><em>750 Ft/kg-tól</em> — nettó, 2,5 kg-os kiszerelés. <a href="#arak" class="arrow-link">Sávos árak</a></span>
             </div>
           </div>
         </div>
@@ -350,6 +424,43 @@
     </div>
   </section>
 
+  <!-- ═══ Árak ════════════════════════════════════════════════ -->
+  <section class="section" id="arak" aria-labelledby="price-title">
+    <div class="shell split-5-7">
+      <div class="stack stack-4 sticky-aside">
+        <p class="eyebrow reveal">Árak</p>
+        <h2 class="display reveal" id="price-title">Minél több,<br>annál kedvezőbb.</h2>
+        <p class="body-sm reveal max-44" style="--delay:120ms">
+          Jégkocka, 2,5 kg-os kiszerelés. A kiszállítás ezen felül sem kerül
+          semmibe: Szegeden és a közvetlen környéken 0 Ft, minden tételnél.
+        </p>
+      </div>
+
+      <div class="reveal">
+        <div class="price-table">
+          <div class="price-row price-row--base">
+            <span class="price-row__tier">Alapár</span>
+            <span class="price-row__value">750 Ft<small>/kg</small></span>
+          </div>
+          <div class="price-row">
+            <span class="price-row__tier">100 kg felett</span>
+            <span class="price-row__value">725 Ft<small>/kg</small></span>
+          </div>
+          <div class="price-row">
+            <span class="price-row__tier">200 kg felett</span>
+            <span class="price-row__value">700 Ft<small>/kg</small></span>
+          </div>
+        </div>
+
+        <p class="price-note">
+          Az árak nettó árak, az áfát nem tartalmazzák. Jégdara árát és a
+          minimum mennyiséget telefonon mondjuk meg —
+          <a href="tel:+36706066181" class="arrow-link">+36 70 606 6181</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ Feltételek ══════════════════════════════════════════ -->
   <section class="section" id="feltetelek" aria-labelledby="terms-title">
     <div class="shell split-5-7">
@@ -357,8 +468,8 @@
         <p class="eyebrow reveal">Feltételek</p>
         <h2 class="display reveal" id="terms-title">Amit rendelés<br>előtt tudni kell.</h2>
         <p class="body-sm reveal max-44" style="--delay:120ms">
-          A pontos árat és a minimum mennyiséget telefonon egyeztetjük,
-          mert mindkettő függ a címtől, az időponttól és a tételtől.
+          A jégkocka árát fent megtalálja. A minimum mennyiséget telefonon
+          egyeztetjük, mert függ a címtől, az időponttól és a tételtől.
         </p>
       </div>
 
@@ -502,7 +613,7 @@
       </div>
       <nav class="footer__col" aria-label="Szolgáltatások">
         <p class="footer__title">Szolgáltatás</p>
-        <a href="termekek.html" class="footer__link">Termékek</a>
+        <a href="termekek.html" class="footer__link">Termékek &amp; árak</a>
         <a href="kiszallitas.html" class="footer__link">Kiszállítás</a>
         <a href="huto-kihelyezes.html" class="footer__link">Hűtő kihelyezés</a>
       </nav>
